@@ -1,0 +1,66 @@
+{
+  "libros": [
+    {
+      "titulo": "El Principito",
+      "paginas": 96,
+      "autor": "Antoine de Saint-Exupéry",
+      "biblioteca": "Biblioteca A",
+      "id": "1303"
+    },
+    {
+      "titulo": "1984",
+      "paginas": 328,
+      "autor": "George Orwell",
+      "biblioteca": "Biblioteca A",
+      "id": "673e"
+    },
+    {
+      "titulo": "Libro Prueba 1",
+      "paginas": 96,
+      "autor": "Autor Prueba 1",
+      "biblioteca": "Biblioteca B",
+      "id": "7939"
+    },
+    {
+      "titulo": "Libro Prueba 2",
+      "paginas": 328,
+      "autor": "Autor Prueba 2",
+      "biblioteca": "Biblioteca B",
+      "id": "c6d6"
+    },
+    {
+      "id": "88b4",
+      "titulo": "Prueba1",
+      "autor": "Jorge 1",
+      "paginas": 1,
+      "biblioteca": "Biblioteca B"
+    }
+  ],
+  "bibliotecas": [
+    {
+      "nombre": "Biblioteca A",
+      "coordenadas": {
+        "lat": 40.7128,
+        "lon": -74.006
+      },
+      "libros": [
+        "El Principito",
+        "1984"
+      ],
+      "id": "5725"
+    },
+    {
+      "nombre": "Biblioteca B",
+      "coordenadas": {
+        "lat": 57.7128,
+        "lon": 23.006
+      },
+      "libros": [
+        "Libro Prueba 1",
+        "Libro Prueba 2",
+        "Prueba1"
+      ],
+      "id": "5df3"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <h1 class="text-center">Gestión de bibliotecas y libros</h1>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Gestión de bibliotecas</h2>
+                    <a [routerLink]="['/bibliotecas']" class="btn btn-outline-primary w-100 mb-2">Listado de bibliotecas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Gestión de libros</h2>
+                    <a [routerLink]="['/libros']" class="btn btn-outline-primary w-100 mb-2">Listado de libros</a>
+                    <a [routerLink]="['/agregarLibros']" class="btn btn-outline-primary w-100 mb-2">Crear Nuevo libros</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

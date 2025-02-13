@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h1 class="text-center">Lista de libros</h1>
+    <div class="row mt-4">
+        <div id="bibliotecas">
+            <h2>Libros</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Páginas</th>
+                        <th>Autor</th>
+                        <th>Biblioteca</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody class="tabla-Libros">
+                    <tr *ngFor="let libro of librosList">
+                        <td>{{ libro.titulo}}</td>
+                        <td>Lat: {{ libro.paginas}}</td>
+                        <td>{{ libro.autor}}</td>
+                        <td>{{ libro.biblioteca}}</td>
+                        <td><a class="btn btn-warning" [routerLink]="['/modificarLibros']">Editar</a><button class="btn btn-danger ms-2">Borrar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
