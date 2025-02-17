@@ -34,6 +34,13 @@
       "autor": "Jorge 1",
       "paginas": 1,
       "biblioteca": "Biblioteca B"
+    },
+    {
+      "id": "1ef5",
+      "titulo": "ALVARO EL CUCARACHO",
+      "autor": "CUCARACHO DE ALHAURIN",
+      "paginas": 100,
+      "biblioteca": "Biblioteca B"
     }
   ],
   "bibliotecas": [
@@ -58,7 +65,8 @@
       "libros": [
         "Libro Prueba 1",
         "Libro Prueba 2",
-        "Prueba1"
+        "Prueba1",
+        "ALVARO EL CUCARACHO"
       ],
       "id": "5df3"
     }
