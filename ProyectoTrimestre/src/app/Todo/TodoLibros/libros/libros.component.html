@@ -3,6 +3,15 @@
     <div class="row mt-4">
         <div id="bibliotecas">
             <h2>Libros</h2>
+            <div class="row mt-4">
+                <div class="col-md-4 mb-3">
+                    <label class="fw-bold" for="bibliotecaSelect">Filtrar por biblioteca</label>
+                    <select class="form-control" id="bibliotecaSelect" [(ngModel)]="bibliotecaSeleccionada" (change)="filtrarLibros()" >
+                        <option value="0" >Todas las bibliotecas</option>
+                        <option *ngFor="let biblioteca of bibliotecasList" [value]="biblioteca.id">{{ biblioteca.nombre }}</option>
+                    </select>
+                </div>
+            </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -14,12 +23,12 @@
                     </tr>
                 </thead>
                 <tbody class="tabla-Libros">
-                    <tr *ngFor="let libro of librosList">
-                        <td>{{ libro.titulo}}</td>
-                        <td>Lat: {{ libro.paginas}}</td>
-                        <td>{{ libro.autor}}</td>
-                        <td>{{ libro.biblioteca}}</td>
-                        <td><a class="btn btn-warning" [routerLink]="['/modificarLibros']">Editar</a><button class="btn btn-danger ms-2">Borrar</button></td>
+                    <tr *ngFor="let libro of librosFiltrados">
+                        <td>{{ libro.titulo }}</td>
+                        <td>Lat: {{ libro.paginas }}</td>
+                        <td>{{ libro.autor }}</td>
+                        <td>{{ bibliotecasList.at(libro.biblioteca_id - 1)?.nombre }}</td>
+                        <td><button class="btn btn-warning ms-2" [routerLink]="['/modificarLibros/', libro.id]">Editar</button><button (click)="eliminarLibro(libro)" class="btn btn-danger ms-2">Borrar</button></td>
                     </tr>
                 </tbody>
             </table>

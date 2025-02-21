@@ -2,14 +2,15 @@ import { Component, inject, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Biblioteca } from '../../TodoBibliotecas/biblioteca';
 import { BibliotecasServiceService } from '../../TodoBibliotecas/bibliotecas-service.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, ReactiveFormsModule, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Libro } from '../libro';
 import { LibrosServiceService } from '../libros-service.service';
 
 
+
 @Component({
   selector: 'app-agregar-libros',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './agregar-libros.component.html',
   styleUrl: './agregar-libros.component.css'
 })
@@ -18,48 +19,55 @@ export class AgregarLibrosComponent {
   bibliotecasList: Biblioteca[] = [];
   bibliotecaService: BibliotecasServiceService = inject(BibliotecasServiceService);
   LibroService: LibrosServiceService = inject(LibrosServiceService);
-  
-  constructor() {
+
+  formularioLibro: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {
+
+    this.formularioLibro = this.formBuilder.group({
+      titulo: ['', [Validators.required, Validators.minLength(3)]] ,
+      paginas: [0, [Validators.required, Validators.min(10)]],
+      autor: ['', [Validators.required, Validators.minLength(3)]],
+      biblioteca_id: [0, [Validators.required, this.validarBiblioteca]]
+
+    });
     this.bibliotecaService.getAllBibliotecas().then((bibliotecasList: Biblioteca[]) => {
       this.bibliotecasList = bibliotecasList;
       this.bibliotecasList = bibliotecasList;
     });
   }
-
   
-  nuevoLibro: Libro = {
-    titulo: "",
-    autor: "",
-    paginas: 0,
-    biblioteca: ""
-  };
+  validarBiblioteca(control: AbstractControl): ValidationErrors | null {
+    return control.value && control.value !== 0 ? null : { bibliotecaInvalida: true };
+  }
 
-  agregarLibro() {
+  async agregarLibro() {
 
-    if (!(this.nuevoLibro.titulo && this.nuevoLibro.autor && this.nuevoLibro.paginas && this.nuevoLibro.biblioteca)) {
-      alert("Todos los campos son obligatorios")
-      return;
-    }
+    let nuevoLibro = this.formularioLibro.value;
 
-    this.LibroService.agregarLibro(this.nuevoLibro).then((libroCreado) => {
-      // Paso 2: Buscar la biblioteca correspondiente
-      this.bibliotecaService.getBibliotecaByNombre(this.nuevoLibro.biblioteca).then((biblioteca) => {
-        if (!biblioteca) {
-          alert("Biblioteca no encontrada");
-          return;
-        }
-  
-        // Paso 3: Agregar el título del libro a la lista de libros de la biblioteca
-        biblioteca.libros.push(libroCreado.titulo);
-  
-        console.log(biblioteca.id)
-        // Paso 4: Actualizar la biblioteca en el JSON Server
-        this.bibliotecaService.actualizarBiblioteca(biblioteca.id, biblioteca).then(() => {
-          alert("Libro agregado correctamente");
-          this.nuevoLibro = { titulo: "", autor: "", paginas: 0, biblioteca: "" };
+    let libroExiste = await this.LibroService.existeLibroByNombre(nuevoLibro.titulo);
+
+    if (!libroExiste) {
+
+      this.LibroService.agregarLibro(nuevoLibro).then((libroCreado) => {
+        this.bibliotecaService.getBibliotecaById(nuevoLibro.biblioteca_id).then((biblioteca) => {
+          if (!biblioteca) {
+            alert("Biblioteca no encontrada");
+            return;
+          }
+    
+          biblioteca.libros.push(libroCreado.titulo);
+    
+          this.bibliotecaService.actualizarBiblioteca(biblioteca.id, biblioteca).then(() => {
+            alert("Libro agregado correctamente");
+            this.formularioLibro.reset();
+          });
         });
       });
-    });
-    
+    } else {
+      alert("Ya existe un libro con este título.");
+    }
   }
 }

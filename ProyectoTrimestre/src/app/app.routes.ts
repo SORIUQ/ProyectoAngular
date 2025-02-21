@@ -31,7 +31,7 @@ export const routes: Routes = [
     
     },
     {
-        path: 'modificarLibros',
+        path: 'modificarLibros/:id',
         component: ModificarLibrosComponent,
         title: 'Modificar libros'
     

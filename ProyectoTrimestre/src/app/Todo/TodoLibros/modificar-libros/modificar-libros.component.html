@@ -1,1 +1,49 @@
-<p>modificar-libros works!</p>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Formulario para editar un Libro</h1>
+
+    <div *ngIf="libro">
+
+        <form [formGroup]="formularioLibro" (ngSubmit)="actualizarLibro()" class="container p-4 border">
+
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título del libro:</label>
+                <input id="titulo" type="text" class="form-control" formControlName="titulo">
+                <div *ngIf="formularioLibro.get('titulo')?.invalid" class="text-danger">
+                    <p>El título debe tener al menos 3 caracteres.</p>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="paginas" class="form-label">Múmero de páginas:</label>
+                <input id="paginas" type="number" class="form-control" formControlName="paginas">
+                <div *ngIf="formularioLibro.get('paginas')?.invalid" class="text-danger">
+                    <p>El número de páginas debe ser mayor o igual a 10.</p>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="autor" class="form-label">Autor:</label>
+                <input id="autor" type="text" class="form-control" formControlName="autor">
+                <div *ngIf="formularioLibro.get('autor')?.invalid" class="text-danger">
+                    <p>El autor debe tener al menos 3 caracteres.</p>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="biblioteca" class="form-label">Biblioteca</label>
+                <select id="biblioteca" class="form-select" formControlName="biblioteca_id">
+                    <option *ngFor="let biblioteca of bibliotecasList" [value]="biblioteca.id">
+                        {{ biblioteca.nombre }}
+                    </option>
+                </select>
+                <div *ngIf="formularioLibro.get('biblioteca_id')?.invalid" class="text-danger">
+                    <p>Debes seleccionar una biblioteca.</p>
+                </div>
+            </div>
+
+            <button class="btn btn-primary w-100" [disabled]="formularioLibro.invalid"
+                type="submit">Crear Libro</button>
+
+        </form>
+    </div>
+</div>

@@ -3,5 +3,5 @@ export interface Libro {
     titulo: string;
     autor: string;
     paginas: number;
-    biblioteca: string;
+    biblioteca_id: number;
 }

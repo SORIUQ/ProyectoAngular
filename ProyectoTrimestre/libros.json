@@ -1,0 +1,39 @@
+{
+  "libros": [
+    {
+      "id": "1",
+      "titulo": "El Principito",
+      "paginas": 96,
+      "autor": "Antoine de Saint-Exupéry",
+      "biblioteca_id": "1"
+    },
+    {
+      "id": "2",
+      "titulo": "1984",
+      "paginas": 328,
+      "autor": "George Orwell",
+      "biblioteca_id": "1"
+    },
+    {
+      "titulo": "Cien años de soledad",
+      "paginas": 471,
+      "autor": "Gabriel García Márquez",
+      "biblioteca_id": "2",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "titulo": "Don Quijote de la Mancha",
+      "paginas": 863,
+      "autor": "Miguel de Cervantes",
+      "biblioteca_id": "2"
+    },
+    {
+      "id": "5",
+      "titulo": "Fahrenheit 451",
+      "paginas": 256,
+      "autor": "Ray Bradbury",
+      "biblioteca_id": "3"
+    }
+  ]
+}

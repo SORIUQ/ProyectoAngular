@@ -6,7 +6,7 @@ import { Biblioteca } from './biblioteca';
 })
 export class BibliotecasServiceService {
 
-  private url = "http://localhost:3000/bibliotecas"
+  private url = "http://localhost:3002/bibliotecas"
 
   constructor() { }
 
@@ -15,10 +15,10 @@ export class BibliotecasServiceService {
     return await data.json() ?? [];
   }
 
-  async getBibliotecaByNombre(nombre: string): Promise<Biblioteca | null> {
-    const response = await fetch(`${this.url}?nombre=${nombre}`);
+  async getBibliotecaById(id: number): Promise<Biblioteca | null> {
+    const response = await fetch(`${this.url}/${id}`);
     const data = await response.json();
-    return data.length > 0 ? data[0] : null;
+    return data? data : null;
   }
   
   async actualizarBiblioteca(id: number, biblioteca: Biblioteca): Promise<void> {

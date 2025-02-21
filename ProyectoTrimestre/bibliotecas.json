@@ -1,0 +1,40 @@
+{
+  "bibliotecas": [
+    {
+      "id": "1",
+      "nombre": "Biblioteca A",
+      "coordenadas": {
+        "lat": 40.7128,
+        "lon": -74.006
+      },
+      "libros": [
+        "1984",
+        "Cien años de soleda"
+      ]
+    },
+    {
+      "id": "2",
+      "nombre": "Biblioteca B",
+      "coordenadas": {
+        "lat": 57.7128,
+        "lon": 23.006
+      },
+      "libros": [
+        "Cien años de soledad",
+        "Don Quijote de la Mancha",
+        "Cien años de soledad"
+      ]
+    },
+    {
+      "id": "3",
+      "nombre": "Biblioteca C",
+      "coordenadas": {
+        "lat": 34.0522,
+        "lon": -118.2437
+      },
+      "libros": [
+        "Fahrenheit 451"
+      ]
+    }
+  ]
+}

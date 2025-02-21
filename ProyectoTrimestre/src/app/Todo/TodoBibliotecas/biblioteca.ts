@@ -7,6 +7,6 @@ export interface Biblioteca {
       lat: number;
       lon: number;
     };
-    libros: String[];
+    libros: string[];
   }
 
