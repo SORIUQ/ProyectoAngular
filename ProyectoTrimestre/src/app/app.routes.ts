@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { BuscadorComponent } from './Todo/buscador/buscador.component';
-import { BibliotecasComponent } from './Todo/TodoBibliotecas/bibliotecas/bibliotecas.component';
-import { LibrosComponent } from './Todo/TodoLibros/libros/libros.component';
-import { AgregarLibrosComponent } from './Todo/TodoLibros/agregar-libros/agregar-libros.component';
-import { ModificarLibrosComponent } from './Todo/TodoLibros/modificar-libros/modificar-libros.component';
+import { BuscadorComponent } from './shared/buscador/buscador.component';
+import { BibliotecasComponent } from './features/biblioteca/components/bibliotecas/bibliotecas.component';
+import { LibrosComponent } from './features/libro/components/libros/libros.component';
+import { AgregarLibrosComponent } from './features/libro/components/agregar-libros/agregar-libros.component';
+import { ModificarLibrosComponent } from './features/libro/components/modificar-libros/modificar-libros.component';
 
 export const routes: Routes = [
     {

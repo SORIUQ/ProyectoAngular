@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Biblioteca } from '../biblioteca';
-import { BibliotecasServiceService } from '../bibliotecas-service.service';
+import { Biblioteca } from '../../../../core/models/biblioteca';
+import { BibliotecasServiceService } from '../../../../core/services/bibliotecas-service.service';
 import { CommonModule } from '@angular/common';
 
 @Component({

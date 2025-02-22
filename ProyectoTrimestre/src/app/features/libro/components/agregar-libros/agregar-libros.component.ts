@@ -1,10 +1,9 @@
 import { Component, inject, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Biblioteca } from '../../TodoBibliotecas/biblioteca';
-import { BibliotecasServiceService } from '../../TodoBibliotecas/bibliotecas-service.service';
+import { Biblioteca } from '../../../../core/models/biblioteca';
+import { BibliotecasServiceService } from '../../../../core/services/bibliotecas-service.service';
 import { FormsModule, FormGroup, ReactiveFormsModule, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { Libro } from '../libro';
-import { LibrosServiceService } from '../libros-service.service';
+import { LibrosServiceService } from '../../../../core/services/libros-service.service';
 
 
 

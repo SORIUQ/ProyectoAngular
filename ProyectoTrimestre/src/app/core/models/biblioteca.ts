@@ -1,5 +1,3 @@
-import { Libro } from "../TodoLibros/libro";
-
 export interface Biblioteca {
     id: number;
     nombre: string;

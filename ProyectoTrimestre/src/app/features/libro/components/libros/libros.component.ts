@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, Component,inject, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Libro } from '../libro';
-import { LibrosServiceService } from '../libros-service.service';
+import { Libro } from '../../../../core/models/libro';
+import { LibrosServiceService } from '../../../../core/services/libros-service.service';
 import { RouterLink } from '@angular/router';
-import { BibliotecasServiceService } from '../../TodoBibliotecas/bibliotecas-service.service';
-import { Biblioteca } from '../../TodoBibliotecas/biblioteca';
+import { BibliotecasServiceService } from '../../../../core/services/bibliotecas-service.service';
+import { Biblioteca } from '../../../../core/models/biblioteca';
 import { FormsModule } from '@angular/forms';
 
 @Component({

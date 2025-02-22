@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Biblioteca } from './biblioteca';
+import { Biblioteca } from '../models/biblioteca';
 
 @Injectable({
   providedIn: 'root'
