@@ -25,7 +25,7 @@
                 <tbody class="tabla-Libros">
                     <tr *ngFor="let libro of librosFiltrados">
                         <td>{{ libro.titulo }}</td>
-                        <td>Lat: {{ libro.paginas }}</td>
+                        <td>{{ libro.paginas }}</td>
                         <td>{{ libro.autor }}</td>
                         <td>{{ bibliotecasList.at(libro.biblioteca_id - 1)?.nombre }}</td>
                         <td><button class="btn btn-warning ms-2" [routerLink]="['/modificarLibros/', libro.id]">Editar</button><button (click)="eliminarLibro(libro)" class="btn btn-danger ms-2">Borrar</button></td>
