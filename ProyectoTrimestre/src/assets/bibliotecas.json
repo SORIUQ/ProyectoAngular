@@ -4,8 +4,8 @@
       "id": "1",
       "nombre": "Biblioteca A",
       "coordenadas": {
-        "lat": 40.7128,
-        "lon": -74.006
+        "lat": 36.594844996714876,
+        "lon": -4.529827982971553
       },
       "libros": [
         "1984",
@@ -16,8 +16,8 @@
       "id": "2",
       "nombre": "Biblioteca B",
       "coordenadas": {
-        "lat": 57.7128,
-        "lon": 23.006
+        "lat": 36.62855658145893,
+        "lon": -4.498158821025275
       },
       "libros": [
         "Cien años de soledad",
@@ -28,8 +28,8 @@
       "id": "3",
       "nombre": "Biblioteca C",
       "coordenadas": {
-        "lat": 34.0522,
-        "lon": -118.2437
+        "lat": 36.69069718906191,
+        "lon": -4.445325949468978
       },
       "libros": [
         "Fahrenheit 451"
