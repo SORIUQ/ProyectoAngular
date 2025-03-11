@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import * as L from 'leaflet';
 import { BibliotecasServiceService } from '../../../../core/services/bibliotecas-service.service';
 import { Biblioteca } from '../../../../core/models/biblioteca';
 
 @Component({
   selector: 'app-mapa-biblioteca',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './mapa-biblioteca.component.html',
   styleUrl: './mapa-biblioteca.component.css'
 })
