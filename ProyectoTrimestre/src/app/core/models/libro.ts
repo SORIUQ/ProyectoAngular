@@ -3,5 +3,6 @@ export interface Libro {
     titulo: string;
     autor: string;
     paginas: number;
+    favorito: boolean;
     biblioteca_id: number;
 }

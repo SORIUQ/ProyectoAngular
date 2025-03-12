@@ -5,6 +5,7 @@
       "titulo": "El Principito",
       "paginas": 96,
       "autor": "Antoine de Saint-Exupéry",
+      "favorito": true,
       "biblioteca_id": "1"
     },
     {
@@ -12,6 +13,7 @@
       "titulo": "1984",
       "paginas": 328,
       "autor": "George Orwell",
+      "favorito": false,
       "biblioteca_id": "1"
     },
     {
@@ -19,6 +21,7 @@
       "titulo": "Cien años de soledad",
       "paginas": 471,
       "autor": "Gabriel García Márquez",
+      "favorito": false,
       "biblioteca_id": "2"
     },
     {
@@ -26,6 +29,7 @@
       "titulo": "Don Quijote de la Mancha",
       "paginas": 863,
       "autor": "Miguel de Cervantes",
+      "favorito": true,
       "biblioteca_id": "2"
     },
     {
@@ -33,6 +37,7 @@
       "titulo": "Fahrenheit 451",
       "paginas": 256,
       "autor": "Ray Bradbury",
+      "favorito": false,
       "biblioteca_id": "3"
     }
   ]

@@ -46,6 +46,7 @@ export class LibrosComponent implements OnInit, OnChanges{
   cargarLibros() {
     this.librosService.getAllLibros().then((librosList2: Libro[]) => {
       this.librosList = librosList2;
+      this.librosFavoritos = this.librosList.filter(libro => libro.favorito == true);
       this.filtrarLibros();
     });
     
@@ -92,12 +93,27 @@ export class LibrosComponent implements OnInit, OnChanges{
 
       if (!this.librosFavoritos.some(libro => libro.id === libroCopiado.id)) {
         this.librosFavoritos.push(libroCopiado);
+
+        this.librosService.getLibroById(libroCopiado.id!.toString()).then(async (libro) => {
+          if (!libro) {
+            alert("Libro no encontrado");
+            return;
+          }
+
+          libro.favorito = true;
+          this.librosService.modificarLibro(libro.id!.toString(), libro);
+          
+        });
       }
     }
   }
 
   eliminarDeFavoritos(libro: any) {
     this.librosFavoritos = this.librosFavoritos.filter(librofav => librofav.id !== libro.id);
+
+    libro.favorito = false;
+    this.librosService.modificarLibro(libro.id!.toString(), libro);
+
   }
 
 }
