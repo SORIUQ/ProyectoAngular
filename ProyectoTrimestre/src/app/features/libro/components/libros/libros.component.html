@@ -22,13 +22,41 @@
                         <th colspan="2">Opciones</th>
                     </tr>
                 </thead>
-                <tbody class="tabla-Libros">
-                    <tr *ngFor="let libro of librosFiltrados">
+                <tbody class="tabla-Libros"  cdkDropList [cdkDropListData]="librosFiltrados" [cdkDropListConnectedTo]="['drop']" id="grap">
+                    <tr *ngFor="let libro of librosFiltrados" cdkDrag>
                         <td>{{ libro.titulo }}</td>
                         <td>{{ libro.paginas }}</td>
                         <td>{{ libro.autor }}</td>
                         <td>{{ bibliotecasList.at(libro.biblioteca_id - 1)?.nombre }}</td>
                         <td><button class="btn btn-warning ms-2" [routerLink]="['/modificarLibros/', libro.id]">Editar</button><button (click)="eliminarLibro(libro)" class="btn btn-danger ms-2">Borrar</button></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div id="favoritos">
+            <h2>Libros favoritos</h2>
+            <table class="table table-bordered" cdkDropList [cdkDropListData]="librosFavoritos" [cdkDropListConnectedTo]="['grap']" (cdkDropListDropped)="onDrop($event)" id="drop">
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Páginas</th>
+                        <th>Autor</th>
+                        <th>Biblioteca</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let libro of librosFavoritos">
+                        <td>{{ libro.titulo }}</td>
+                        <td>{{ libro.paginas }}</td>
+                        <td>{{ libro.autor }}</td>
+                        <td>{{ bibliotecasList.at(libro.biblioteca_id - 1)?.nombre }}</td>
+                        <td>
+                            <button (click)="eliminarDeFavoritos(libro)" class="btn btn-danger ms-2">Eliminar</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -15,11 +15,11 @@
       "biblioteca_id": "1"
     },
     {
+      "id": "3",
       "titulo": "Cien años de soledad",
       "paginas": 471,
       "autor": "Gabriel García Márquez",
-      "biblioteca_id": "2",
-      "id": "3"
+      "biblioteca_id": "2"
     },
     {
       "id": "4",

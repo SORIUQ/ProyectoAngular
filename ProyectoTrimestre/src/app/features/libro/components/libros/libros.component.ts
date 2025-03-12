@@ -6,10 +6,11 @@ import { RouterLink } from '@angular/router';
 import { BibliotecasServiceService } from '../../../../core/services/bibliotecas-service.service';
 import { Biblioteca } from '../../../../core/models/biblioteca';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule, CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-libros',
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule, RouterLink, FormsModule, DragDropModule],
   templateUrl: './libros.component.html',
   styleUrl: './libros.component.css'
 })
@@ -20,6 +21,8 @@ export class LibrosComponent implements OnInit, OnChanges{
   
   bibliotecasList: Biblioteca[] = [];
   bibliotecaService: BibliotecasServiceService = inject(BibliotecasServiceService);
+
+  librosFavoritos: Libro[] = [];
 
   bibliotecaSeleccionada: string = '0';
   librosFiltrados: Libro[] = [];
@@ -81,6 +84,20 @@ export class LibrosComponent implements OnInit, OnChanges{
       this.cargarLibros();
 
     });
+  }
+
+  onDrop(event: CdkDragDrop<any[]>) {
+    if (event.previousContainer !== event.container) {
+      let libroCopiado = { ...event.previousContainer.data[event.previousIndex] };
+
+      if (!this.librosFavoritos.some(libro => libro.id === libroCopiado.id)) {
+        this.librosFavoritos.push(libroCopiado);
+      }
+    }
+  }
+
+  eliminarDeFavoritos(libro: any) {
+    this.librosFavoritos = this.librosFavoritos.filter(librofav => librofav.id !== libro.id);
   }
 
 }
